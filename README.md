@@ -1,5 +1,13 @@
 # Enhanced WiFi Menu & Status Modules
 
+![WiFi Menu](Screenshots/1.png)
+
+This is an updated version of the polybar themes compared to the original at https://github.com/adi1090x/polybar-themes - featuring modern enhancements like More scripts, More day to day use Models and more.
+
+![WiFi Status](Screenshots/5.png)
+
+---
+
 This package provides enhanced WiFi menu and status modules for Linux systems using NetworkManager.
 
 ## What Does This Do?
