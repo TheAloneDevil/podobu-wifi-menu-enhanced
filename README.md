@@ -76,10 +76,10 @@ Edit user_modules.ini - change ~/YourPath/ to your path.
 ## Font Values
 
 This module uses Nerd Fonts with these font numbers (font-n = T(n+1)):
-- T6 = font-5 (large icons)
-- T9 = font-8 (medium icons)
-- T17 = font-16 (small icons)
-- T18 = font-17 (smallest icons)
+- T6 = font-5 = "Iosevka Nerd Font:size=18;4"
+- T9 = font-8 = "Iosevka Nerd Font:size=13;4"
+- T17 = font-16 = "Iosevka Nerd Font:size=11;-3"
+- T18 = font-17 = "Iosevka Nerd Font:size=13;3"
 
 Make sure your polybar config has these fonts defined.
 
