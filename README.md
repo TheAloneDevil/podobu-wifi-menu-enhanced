@@ -66,28 +66,50 @@ chmod +x ~/.config/polybar/forest/scripts/wifimenu.sh
 ```
 
 ### Step 5: Update Paths in user_modules.ini
-Open `user_modules.ini` and replace:
-- Line 5: Change `~/YourPath` to your actual scripts path (e.g., `~/.config/polybar/forest/scripts`)
-- Line 10: Change `~/YourPath` to your actual scripts path
-- Line 11: Change `~/YourPath` to your actual scripts path
+Open `user_modules.ini` in a text editor and edit these specific lines:
 
-Example after editing:
+| Line | Edit This | Change To |
+|------|-----------|----------|
+| 5 | `exec = ~/YourPath/network-wifi.sh` | `exec = ~/.config/polybar/forest/scripts/network-wifi.sh` |
+| 10 | `label = "%{A1:~/YourPath/wifimenu.sh &:}%output%%{A}"` | `label = "%{A1:~/.config/polybar/forest/scripts/wifimenu.sh &:}%output%%{A}"` |
+| 11 | `click-left = ~/YourPath/wifimenu.sh` | `click-left = ~/.config/polybar/forest/scripts/wifimenu.sh` |
+
+After editing, the file should look like:
 ```ini
+;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+
+[module/network-wifi]
+type = custom/script
 exec = ~/.config/polybar/forest/scripts/network-wifi.sh
+interval = 1
+tail = true
+format = <label>
+format-foreground = ${color.foreground}
 label = "%{A1:~/.config/polybar/forest/scripts/wifimenu.sh &:}%output%%{A}"
 click-left = ~/.config/polybar/forest/scripts/wifimenu.sh
+
+;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
 ```
 
 ### Step 6: Enable Module in polybar config
-Open your polybar config file (e.g., `~/.config/polybar/forest/config`) and add:
-```ini
-[module/network-wifi]
-include-file = ~/.config/polybar/forest/scripts/user_modules.ini
+Open your polybar config file (e.g., `~/.config/polybar/forest/config`):
 
+1. Find the `[module/...]` section (around line 5-10) and add:
+```ini
+include-file = ~/.config/polybar/forest/scripts/user_modules.ini
+```
+
+2. Find your bar section (e.g., `[bar/top]`) and add `network-wifi` to `modules-left` or `modules-right`:
+```ini
 [bar/top]
 modules-left = network-wifi
 ```
-Adjust `modules-left` or `modules-right` based on where you want the WiFi module to appear.
+Or if you want it on the right:
+```ini
+modules-right = network-wifi
+```
+
+**Note:** If you already have other modules listed, add `network-wifi` to the existing list (e.g., `modules-left = battery network-wifi`).
 
 ---
 
