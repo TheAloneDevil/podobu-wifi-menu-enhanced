@@ -42,7 +42,7 @@ fi
 connected=$(nmcli -t -f NAME,DEVICE connection show --active 2>/dev/null | grep ":wlan0$" | cut -d: -f1)
 
 if [ -n "$connected" ]; then
-    if ping -c 1 -W 2 8.8.8.8 >/dev/null 2>&1; then
+    if ping -c 1 -W 2 8.8.8.8 >/dev/null 2>&1 || ping -c 1 -W 2 1.1.1.1 >/dev/null 2>&1; then
         icon=""
     else
         icon="󰤣"
