@@ -2,6 +2,14 @@
 
 This package provides enhanced WiFi menu and status modules for Linux desktop.
 
+---
+
+<p align="center">
+  <img src="Screenshots/4.png" width="400"/>
+  <img src="Screenshots/2.png" width="400"/>
+  <img src="Screenshots/3.png" width="400"/>
+</p>
+
 ## Files Included
 
 1. **wifimenu-podobu** - Main WiFi menu script
@@ -20,14 +28,6 @@ This package provides enhanced WiFi menu and status modules for Linux desktop.
 - Network Information menu
 - Remove All Saved Networks option
 - Works with rofi, wofi, dmenu
-
----
-
-<p align="center">
-  <img src="Screenshots/4.png" width="400"/>
-  <img src="Screenshots/2.png" width="400"/>
-  <img src="Screenshots/3.png" width="400"/>
-</p>
 
 ---
 
