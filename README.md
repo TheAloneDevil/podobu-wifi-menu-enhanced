@@ -128,12 +128,12 @@ This module uses the following fonts (T-n = font-n+1):
 
 | Tag | Font Number | Font Name | Size |
 |-----|-------------|-----------|------|
-| T29 | font-29 | Iosevka Nerd Font | 17 |
+| T29 | font-28 | Iosevka Nerd Font | 12;4 |
 
 **Note:** Ensure these fonts are defined in your polybar config. Add to your `config.ini`:
 
 ```ini
-font-29 = "Iosevka Nerd Font:size=17;4"
+font-28 = "Iosevka Nerd Font:size=12;4"
 ```
 
 For icons, you may also need Material Icons:
