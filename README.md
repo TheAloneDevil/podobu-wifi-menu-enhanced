@@ -40,29 +40,29 @@ mkdir -p ~/.config/polybar/forest/scripts
 
 ### Step 2: Copy Files
 ```bash
-cp wifimenu-podobu ~/.config/polybar/forest/scripts/
-cp network-wifi.sh ~/.config/polybar/forest/scripts/
-cp user_modules.ini ~/.config/polybar/forest/scripts/
+cp wifimenu-podobu ~/.config/your_path/scripts/
+cp network-wifi.sh ~/.config/your_path/scripts/
+cp user_modules.ini ~/.config/your_path/scripts/
 ```
 
 ### Step 3: Make Executable
 ```bash
-chmod +x ~/.config/polybar/forest/scripts/wifimenu-podobu
-chmod +x ~/.config/polybar/forest/scripts/network-wifi.sh
+chmod +x ~/.config/your_path/scripts/wifimenu-podobu
+chmod +x ~/.config/your_path/scripts/network-wifi.sh
 ```
 
 ### Step 4: Create Wrapper (Optional)
-Create `~/.config/polybar/forest/scripts/wifimenu.sh`:
+Create `~/.config/your_path/scripts/wifimenu.sh`:
 ```bash
 #!/bin/bash
 while true; do
-    ~/.config/polybar/forest/scripts/wifimenu-podobu "$@"
+    ~/.config/your_path/scripts/wifimenu-podobu "$@"
     [ $? -ne 42 ] && break
 done
 ```
 Then make it executable:
 ```bash
-chmod +x ~/.config/polybar/forest/scripts/wifimenu.sh
+chmod +x ~/.config/your_path/scripts/wifimenu.sh
 ```
 
 ### Step 5: Update Paths in user_modules.ini
@@ -70,9 +70,9 @@ Open `user_modules.ini` in a text editor and edit these specific lines:
 
 | Line | Edit This | Change To |
 |------|-----------|----------|
-| 5 | `exec = ~/YourPath/network-wifi.sh` | `exec = ~/.config/polybar/forest/scripts/network-wifi.sh` |
-| 10 | `label = "%{A1:~/YourPath/wifimenu.sh &:}%output%%{A}"` | `label = "%{A1:~/.config/polybar/forest/scripts/wifimenu.sh &:}%output%%{A}"` |
-| 11 | `click-left = ~/YourPath/wifimenu.sh` | `click-left = ~/.config/polybar/forest/scripts/wifimenu.sh` |
+| 5 | `exec = ~/YourPath/network-wifi.sh` | `exec = ~/.config/your_path/scripts/network-wifi.sh` |
+| 10 | `label = "%{A1:~/YourPath/wifimenu.sh &:}%output%%{A}"` | `label = "%{A1:~/.config/your_path/scripts/wifimenu.sh &:}%output%%{A}"` |
+| 11 | `click-left = ~/YourPath/wifimenu.sh` | `click-left = ~/.config/your_path/scripts/wifimenu.sh` |
 
 After editing, the file should look like:
 ```ini
@@ -80,23 +80,23 @@ After editing, the file should look like:
 
 [module/network-wifi]
 type = custom/script
-exec = ~/.config/polybar/forest/scripts/network-wifi.sh
+exec = ~/.config/your_path/scripts/network-wifi.sh
 interval = 1
 tail = true
 format = <label>
 format-foreground = ${color.foreground}
-label = "%{A1:~/.config/polybar/forest/scripts/wifimenu.sh &:}%output%%{A}"
-click-left = ~/.config/polybar/forest/scripts/wifimenu.sh
+label = "%{A1:~/.config/your_path/scripts/wifimenu.sh &:}%output%%{A}"
+click-left = ~/.config/your_path/scripts/wifimenu.sh
 
 ;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
 ```
 
 ### Step 6: Enable Module in polybar config
-Open your polybar config file (e.g., `~/.config/polybar/forest/config`):
+Open your polybar config file (e.g., `~/.config/your_path/config`):
 
 1. Find the `[module/...]` section (around line 5-10) and add:
 ```ini
-include-file = ~/.config/polybar/forest/scripts/user_modules.ini
+include-file = ~/.config/your_path/scripts/user_modules.ini
 ```
 
 2. Find your bar section (e.g., `[bar/top]`) and add `network-wifi` to `modules-left` or `modules-right`:
